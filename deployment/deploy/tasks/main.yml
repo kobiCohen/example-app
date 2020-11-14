@@ -1,0 +1,9 @@
+---
+- name: create kub deplyment from template
+  template:
+    src: deployment.yaml.j2
+    dest: "{{ dir }}/deployment.yaml"
+
+
+- name: deply kub deplyment
+  shell: kubectl apply -f {{ dir }}/deployment.yaml 

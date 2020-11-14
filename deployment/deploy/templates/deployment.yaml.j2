@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+Namespace: test
+metadata:
+  name: app-deployment
+  labels:
+    app: example
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: example
+  template:
+    metadata:
+      labels:
+        app: example
+    spec:
+      containers:
+      - name: example-app
+        image: 127.0.0.1:31320/app:"{{ tag }}"
+        ports:
+        - containerPort: 8090
